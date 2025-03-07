@@ -21,5 +21,17 @@ class OrderViewSet(ModelViewSet):
             items.append(item)
         return Response({
             "uuid": order.uuid,
-            "price": round(sum([item.price * item.item_ref.quantity for item in items]) / 100, 2)
         }, status=status.HTTP_201_CREATED)
+    
+    def retrieve(self, request, *args, **kwargs):
+        order = Order.objects.get(uuid=kwargs['pk'])
+        return Response({
+            "items": [
+                {
+                    "name": item.item_ref.ice_cream.name,
+                    "quantity": item.item_ref.quantity,
+                    "image_ref": item.item_ref.ice_cream.image_path
+                }
+                for item in order.item_set.all()
+            ]
+        })

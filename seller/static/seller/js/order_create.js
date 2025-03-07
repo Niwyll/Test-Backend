@@ -38,7 +38,7 @@ $(document).ready(function () {
             contentType: "application/json",
             data: JSON.stringify({ items: formattedFlavours }),
             success: function (data) {
-                console.log(data)
+                window.location.href = `/orders/${data.uuid}/confirm/`;
             },
             error: function (xhr) {
                 console.log(xhr);

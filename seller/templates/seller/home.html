@@ -6,7 +6,10 @@
 {# No need for form div as we use ajax #}
 {% bootstrap_messages %}
 
-{% bootstrap_button button_type="submit" content="Search this order" id="search-order-btn" %}
+<input id="id_uuid" type="search" class="form-control mb-3" placeholder="Search for an order uuid" aria-label="Search">
+{% bootstrap_button button_type="submit" content="Find" id="search-order-btn" %}
+<div id="result-container">
+</div>
 {% endblock %}
 
 {% block scripts %}

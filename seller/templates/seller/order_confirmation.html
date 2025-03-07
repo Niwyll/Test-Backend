@@ -1,0 +1,6 @@
+{% extends "seller/base.html" %}
+
+{% block main %}
+    <div class="alert alert-success text-center" role="alert">Order {{ uuid }} has beeing successfully created for a price of {{price}}€</div>
+    <a class="btn btn-primary" href="{% url "seller:home" %}">Return to home page</a>
+{% endblock %}

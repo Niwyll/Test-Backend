@@ -36,3 +36,10 @@ Un utilisateur a le choix du nombre de boule et des parfums.
 - [ ] Publie-le sur GitHub en tant que `pull-request`
 - [ ] Envoie-nous le lien et dis-nous approximativement combien de temps tu as passé sur ce travail.
 
+## Instruction du candidat
+Pour lancer le projet:
+- `python -m venv venv`
+- `source venv/bin/activate` sur Linux, `source venv/bin/activate` sur Windows
+- `pip install -r requirements.txt`
+- `python manage.py migrate` pour migrer la base de données
+- `python manage.py init_demo` pour initialiser des données de showcase

@@ -1,0 +1,6 @@
+{% extends 'registration/auth.html' %}
+
+{% block form_text %}Please register{% endblock%}
+{% block redirect_text %}Already have an account ?{% endblock%}
+{% block redirect_url %}{% url "login" %}{% endblock%}
+{% block button_text %}Register now{% endblock %}

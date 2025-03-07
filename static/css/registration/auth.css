@@ -1,0 +1,10 @@
+html,
+body {
+  height: 100%;
+}
+
+.auth-form {
+  max-width: 500px;
+  padding: 1rem;
+}
+

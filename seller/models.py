@@ -10,7 +10,7 @@ class Order(models.Model):
 
 
 class Item(models.Model):
-    command = models.ForeignKey(Order, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     item_ref_id = models.PositiveIntegerField()
     item_ref = GenericForeignKey("content_type", "item_ref_id")

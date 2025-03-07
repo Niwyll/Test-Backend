@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.core.validators import MinValueValidator 
 
 class IceCream(models.Model):
     name = models.CharField(max_length=64, unique=True)
@@ -14,6 +15,7 @@ class IceCream(models.Model):
 
 class IceCreamBall(models.Model):
     ice_cream = models.ForeignKey(IceCream, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(validators=[MinValueValidator(1)], default=1)
 
     def __str__(self):
         return f"Ball of {self.ice_cream}"

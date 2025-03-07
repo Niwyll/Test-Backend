@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    {% block header %}
+  <header class="p-3 text-bg-dark mb-3">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="{% url "seller:home" %}" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <img src="{% static "img/icecone.png" %}" width="50" length="50"></img>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 px-2">
+          <li>
+            <a href="{% url "seller:home" %}" class="nav-link px-2 text-secondary">Home</a>
+          </li>
+          <li>
+            <a href="{% url "seller:order-create" %}" class="nav-link px-2 text-white">Create command</a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-2 text-white">Management</a>
+          </li>
+        </ul>
+
+        <div class="text-end">
+          <button type="button" class="btn btn-danger"><i class="bi bi-power pe-2"></i>Sign out</button>
+        </div>
+      </div>
+  </header>
+  {% endblock %}
+  <main>
+    <div class="container">
+      {% block main %}{% endblock%}
+    </div>
+  </main>
+{% endblock %}

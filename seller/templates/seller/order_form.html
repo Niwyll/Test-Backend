@@ -1,0 +1,21 @@
+{% extends "seller/base.html" %}
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% block main %}
+<div class="d-flex justify-content-evenly mb-5">
+    {% for icecream in icecreams %}
+        <div class="text-center">
+            <img id="{{ icecream.name | slugify }}" src="{{icecream.image_path}}" width="100" height="100"><img>
+            <p>Take 1x {{ icecream.name }} ice cream ball</p>
+        </div>
+    {% endfor %}
+</div>
+
+<p id="order-list" class="m2">
+    No items selected
+</p>
+{# No need for form div as we use ajax #}
+{% bootstrap_messages %}
+{% bootstrap_button button_type="submit" content="Place an order" id="search-order-btn" %}
+{% endblock %}

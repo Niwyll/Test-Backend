@@ -1,0 +1,14 @@
+{% extends "seller/base.html" %}
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% block main %}
+{# No need for form div as we use ajax #}
+{% bootstrap_messages %}
+
+{% bootstrap_button button_type="submit" content="Search this order" id="search-order-btn" %}
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static "seller/js/search_order.js" %}"></script>
+{% endblock %}

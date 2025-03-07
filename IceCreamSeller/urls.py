@@ -25,7 +25,7 @@ urlpatterns = [
     path("auth/", include("django.contrib.auth.urls")),
     # Setting this one appart as it's not include in Django's generic auth views
     path("auth/register", RegisterView.as_view(), name="register"),
-    path("", include("icecreams.urls", namespace="icecreams"))
+    path("", include("seller.urls", namespace="seller")),
 ]
 
 if settings.DEBUG:

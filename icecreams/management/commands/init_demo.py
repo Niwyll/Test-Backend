@@ -6,12 +6,12 @@ class Command(BaseCommand):
     help = "Initialize the database to run demo"
 
     def handle(self, *args, **options):
-        perfumes = ('Cherry', 'Chocolat Orange', 'Pistachio', 'Raspberry', 'Vanilla')
+        perfumes = ('Cherry', 'Chocolate Orange', 'Pistachio', 'Raspberry', 'Vanilla')
 
         for perfume in perfumes:
             ice_cream, created = IceCream.objects.get_or_create(
                 name=perfume,
-                static_image_path=f"{ perfume.lower().replace(' ', '-') }.jpg"
+                static_image_path=f"icecreams/img/{ perfume.lower().replace(' ', '-') }.jpg"
             )
             if created:
                 ice_cream.save()

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'django_bootstrap5',
     'icecreams',
     'seller'
@@ -133,4 +134,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Authentification
-LOGIN_REDIRECT_URL = reverse_lazy('icecreams:home')
+LOGIN_REDIRECT_URL = reverse_lazy('seller:home')

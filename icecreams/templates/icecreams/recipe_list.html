@@ -1,0 +1,17 @@
+{% extends 'icecreams/base.html' %}
+
+{% block main %}
+<h1 class="h1 m-3">Your recipes ({{recipe_list|length}})</h1>
+    {% for recipe in recipe_list %}
+      <div class="card m-3">
+        <div class="card-header">{{ recipe.name }}</div>
+        <div class="card-body">
+            <ul>
+            {% for item in recipe.ice_cream_balls.all %}
+                <li class="card-text">{{ item.quantity }}x {{ item }}</p>
+            {% endfor %}
+            </ul>
+        </div>
+      </div>
+    {% endfor %}
+{% endblock %}

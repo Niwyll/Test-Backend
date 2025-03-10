@@ -1,0 +1,20 @@
+<div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
+    <label class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none fs-4">Administration</label>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        {% url "icecreams:management-buckets" as management_buckets_url %}
+        <a href="{{management_buckets_url}}" class="nav-link{% if request.get_full_path == management_buckets_url %} active{% else %} text-white{% endif %}" aria-current="page">
+            <i class="bi-bucket-fill"></i>
+        Buckets
+        </a>
+      </li>
+      <li>
+        {% url "icecreams:management-recipes" as management_recipes_url %}
+        <a href="{{management_recipes_url}}" class="nav-link{% if request.get_full_path == management_recipes_url %} active{% else %} text-white{% endif %}">
+            <i class="bi bi-card-list"></i>
+        Recipes
+        </a>
+      </li>
+    </ul>
+  </div>

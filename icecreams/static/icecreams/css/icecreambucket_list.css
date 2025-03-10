@@ -1,0 +1,9 @@
+.gray-overlay {
+    background: rgba(128, 128, 128, 0.6); /* Semi-transparent gray */
+    transition: height 0.3s ease-in-out;
+    height: 100%; /* Initially fully gray */
+}
+
+#refill-button {
+    cursor: pointer;
+}

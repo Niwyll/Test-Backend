@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "includes/header.html" %}
+<div class="d-flex flex-nowrap">
+    {% include "icecreams/includes/sidebar.html" %}
+
+  <main>
+    <div class="container pt-3">
+      {% block main %}
+      {% endblock %}
+    </div>
+  </main>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function adjustSidebarHeight() {
+        let headerHeight = document.querySelector("header").offsetHeight;
+        let sidebar = document.querySelector("#sidebar");
+        sidebar.style.minHeight = `calc(100vh - ${headerHeight}px)`;
+    }
+    
+    // Run on page load
+    adjustSidebarHeight();
+    // Run on window resize to adjust dynamically
+    window.addEventListener("resize", adjustSidebarHeight);
+</script>
+{% endblock %}

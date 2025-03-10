@@ -1,4 +1,9 @@
 $(document).ready(function () {
+    function getCSRFToken() {
+        let csrfCookie = document.cookie.split("; ").find(row => row.startsWith("csrftoken="));
+        return csrfCookie ? csrfCookie.split("=")[1] : "";
+    }
+
     const icecreams_url = "/api/icecreams/";
     let flavours = []
     $.ajax({
@@ -8,7 +13,6 @@ $(document).ready(function () {
             flavours = data.map(choice => {
                 return [choice.name, choice.name.toLowerCase().replace(/\s+/g, "-"), 0];
             });  // Extract only the labels
-            console.log(flavours);
         },
         error: function (xhr) {
             console.log("Api not found");
@@ -39,13 +43,15 @@ $(document).ready(function () {
             url: '/api/orders/',
             type: "POST",
             contentType: "application/json",
+            headers: { "X-CSRFToken": getCSRFToken() },
             data: JSON.stringify({ items: formattedFlavours }),
             success: function (data) {
                 window.location.href = `/orders/${data.uuid}/confirm/`;
             },
             error: function (xhr) {
                 const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
-                $('.toast-body').text(JSON.parse(xhr.responseText).error);
+                console.log(JSON.parse(xhr.responseText).error)
+                $('.toast-body').text(JSON.parse(xhr.responseText).error ?? JSON.parse(xhr.responseText).detail);
                 toastBootstrap.show();
             }
         });
